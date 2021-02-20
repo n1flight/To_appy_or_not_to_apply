@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
+const { response } = require("express");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -48,6 +49,37 @@ module.exports = function(app) {
         email: req.user.email,
         id: req.user.id
       });
+    }    
+
+  });
+  app.get("api/members/favorites", async (req, res) => {
+    try { 
+      const favorite = await db.password_demo.findall()
+      response.json(favorite)
+    }catch(err) {
+      res.status(500).send(err)
     }
   });
+
+  app.post("api/members/favorites", async (req, res) => {
+    try { 
+      await db.password_demo.create(req.body)
+      res,status().send()
+    }catch(err) {
+      res.status(500).send(err)
+    }
+  });
+
+  app.put("api/members/favorites/:id", async (req,res) => {
+    try{
+      const id = req.params.id
+      await db.jobSearch_db.update(req.body ,{
+        where: {id}
+      })
+      res.status(200).send()
+    }catch(err) {
+      res.status(500).send(err)
+    }
+  })
+
 };
