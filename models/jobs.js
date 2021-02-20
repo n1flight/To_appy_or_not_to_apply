@@ -17,11 +17,11 @@ module.exports = function (sequelize, DataTypes) {
     },
     snippet: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     url: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     Salary: {
       type: DataTypes.INTEGER,
@@ -34,8 +34,13 @@ module.exports = function (sequelize, DataTypes) {
     notes: {
       type: DataTypes.TEXT,
       allowNull: true
+    },
+    deadline: {
+      type: DataTypes.DATEONLY,
+      allowNull: true
     }
 
+    // 
     // Other model options go here
   })
 
