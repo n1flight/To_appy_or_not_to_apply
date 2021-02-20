@@ -13,25 +13,27 @@ $(document).ready(() => {
     const submit = $("#submit");
 
 
-    submit.on("submit", e => {
-        console.log(submit.id)
+    submit.on("click", e => {
         e.preventDefault();
+
+        console.log(jobTitle.val())
+
         const jobInput = {
-            jobtitle: jobTitle,
-            company: company,
-            location: location,
-            snippit: snippit,
-            link: link,
-            deadline: deadline,
-            notes: notes,
-            interest: interest,
-            status: status,
+            jobtitle: jobTitle.val(),
+            company: company.val(),
+            location: location.val(),
+            snippit: snippit.val(),
+            link: link.val(),
+            deadline: deadline.val(),
+            notes: notes.val(),
+            interest: interest.val(),
+            status: status.val(),
         }
         console.log(jobInput)
-        submitForm(jobInput.val())
-    })
+        // submitForm(jobInput.val())
 
-    function submitForm() {
+
+        // function submitForm() {
         $.post("/home", {
             jobtitle: jobTitle,
             company: company,
@@ -40,6 +42,6 @@ $(document).ready(() => {
             deadline: deadline,
             notes: notes,
         });
-    }
-
+        // }
+    })
 });
