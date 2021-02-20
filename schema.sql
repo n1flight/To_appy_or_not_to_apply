@@ -1,3 +1,3 @@
-CREATE DATABASE jobSearch_db;
+CREATE DATABASE passport_demo;
 
-USE jobSearch_db;
+USE passport_demo;
