@@ -26,8 +26,8 @@ $(document).ready(() => {
             link: link.val(),
             deadline: deadline.val(),
             notes: notes.val(),
-            interest: interest.val(),
-            status: status.val(),
+            interest: interest,
+            status: status,
         }
         console.log(jobInput)
         // submitForm(jobInput.val())

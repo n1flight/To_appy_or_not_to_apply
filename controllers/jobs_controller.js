@@ -7,7 +7,6 @@ console.log("hello world")
 
 router.get("/home", function (req, res) {
     
-
     var test = { data: "data"}
     res.render('home', {test})
 })
