@@ -6,6 +6,7 @@ $(document).ready(() => {
     const formattedLocation = $("input#form-location");
     const snippit = $("input#form-snippit");
     const url = $("input#form-link");
+    const salary = $("#form-salary");
     const deadline = $("input#form-deadline");
     const notes = $("input#form-notes");
     const interested = $("#form-interest");
@@ -24,9 +25,9 @@ $(document).ready(() => {
             formattedLocation: formattedLocation.val(),
             snippit: snippit.val(),
             url: url.val(),
-            // salary
+            salary: parseFloat(salary.val()),
             interested: interested.val(),
-            // deadline: deadline.val(),
+            deadline: deadline.val(),
             notes: notes.val(),
             status: status.val(),
         }

@@ -24,22 +24,20 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     snippet: {
-      type: DataTypes.STRING,
-      defaultValue: "Dream job!"
+      type: DataTypes.STRING
     },
     url: {
       type: DataTypes.STRING
     },
     salary: {
-      type: DataTypes.INTEGER
+      type: DataTypes.DECIMAL
     },
     interested: {
-      type: DataTypes.STRING,
-      defaultValue: "Interested"
+      type: DataTypes.STRING
     },
-    // deadline: {
-    //   type: DataTypes.DATEONLY
-    // },
+    deadline: {
+      type: DataTypes.DATEONLY
+    },
     notes: {
       type: DataTypes.TEXT
     },

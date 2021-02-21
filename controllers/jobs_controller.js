@@ -21,9 +21,11 @@ router.post("/api/favorites" , function (req, res) {
         formattedLocation: req.body.formattedLocation,
         snippit: req.body.snippit,
         url: req.body.url,
-        interest: req.body.interest,
+        salary: req.body.salary,
+        interested: req.body.interested,
         deadline: req.body.deadline,
         notes: req.body.notes,
+        status: req.body.status
     }).then(function(dbJobs) {
         res.json(dbJobs)
     })
