@@ -1,8 +1,16 @@
 
+// const Sequelize = require('sequelize')
+
 module.exports = function (sequelize, DataTypes) {
   
   const Jobs = sequelize.define('Jobs', {
     // Model attributes are defined here
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false
+     },
     jobtitle: {
       type: DataTypes.STRING,
       allowNull: false
@@ -17,30 +25,27 @@ module.exports = function (sequelize, DataTypes) {
     },
     snippet: {
       type: DataTypes.STRING,
-      allowNull: true
+      defaultValue: "Dream job!"
     },
     url: {
+      type: DataTypes.STRING
+    },
+    salary: {
+      type: DataTypes.INTEGER
+    },
+    interested: {
       type: DataTypes.STRING,
-      allowNull: true
+      defaultValue: "Interested"
     },
-    Salary: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    Interested: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
-    },
+    // deadline: {
+    //   type: DataTypes.DATEONLY
+    // },
     notes: {
-      type: DataTypes.TEXT,
-      allowNull: true
+      type: DataTypes.TEXT
     },
-    deadline: {
-      type: DataTypes.DATEONLY,
-      allowNull: true
+    status: {
+      type: DataTypes.STRING
     }
-
-    // 
     // Other model options go here
   })
 
