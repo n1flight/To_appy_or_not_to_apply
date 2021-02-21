@@ -8,8 +8,8 @@ $(document).ready(() => {
     const link = $("input#form-link");
     const deadline = $("input#form-deadline");
     const notes = $("input#form-notes");
-    const interest = $("input#form-interest");
-    const status = $("input#form-status");
+    const interest = $("#form-interest");
+    const status = $("#form-status");
     const submit = $("#submit");
 
 
@@ -26,12 +26,11 @@ $(document).ready(() => {
             link: link.val(),
             deadline: deadline.val(),
             notes: notes.val(),
-            interest: interest,
-            status: status,
+            interest: interest.val(),
+            status: status.val(),
         }
-        console.log(jobInput)
         // submitForm(jobInput.val())
-
+        console.log(jobInput)
 
         // function submitForm() {
         $.post("/home", {
