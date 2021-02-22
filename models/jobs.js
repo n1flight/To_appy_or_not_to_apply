@@ -23,7 +23,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    snippet: {
+    snippit: {
       type: DataTypes.STRING
     },
     url: {
