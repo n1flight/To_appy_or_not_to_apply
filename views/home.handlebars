@@ -73,22 +73,26 @@
     <input class="btn btn-primary" type="submit" id="submit" value="Submit">
   </form>
 
-  {{!-- <div class="card">
-    <h5 class="card-header" id="title-{{#each id}}">Title</h5>
+  {{#if Jobs}}
+  {{#each Jobs}}
+  <div class="card">
+    <h5 class="card-header" id="title-{{{id}}}">{{jobtitle}}</h5>
     <div class="card-body">
-      <h5 class="card-title" id="company-{{#id}}">Company Name</h5>
+      <h5 class="card-title" id="company-{{id}}">{{company}}</h5>
       <br>
-      <p class="card-text" id="location-{{#each id}}">Location:</p>
-      <p class="card-text" id="snippet-{{#each id}}">Description:</p>
-      <p class="card-text" id="link-{{#each id}}">URL:</p>
-      <p class="card-text" id="deadline-{{#each id}}">Deadline:</p>
-      <p class="card-text" id="interest-{{#each id}}">Interest:</p>
-      <p class="card-text" id="notes-{{#each id}}">Notes:</p>
-      <p class="card-text" id="status-{{#each id}}">Status:</p>
-      <a href="#" id="edit-button-{{#each id}}" class="btn btn-primary">Edit</a>
-      <a href="#" id="delete-button-{{#each id}}" class="btn btn-primary">Delete</a>
+      <p class="card-text" id="formattedLocation-{{id}}">Location:{{formattedLocation}}</p>
+      <p class="card-text" id="snippet-{{id}}">Description:{{snippet}}</p>
+      <p class="card-text" id="url-{{id}}">URL:{{url}}</p>
+      <p class="card-text" id="deadline-{{id}}">Deadline:{{deadline}}</p>
+      <p class="card-text" id="interest-{{id}}">Interest:{{interested}}</p>
+      <p class="card-text" id="notes-{{id}}">Notes:{{notes}}</p>
+      <p class="card-text" id="status-{{id}}">Status:{{status}}</p>
+      <a href="#" id="edit-button-{{id}}" class="btn btn-primary">Edit</a>
+      <a href="#" id="delete-button-{{id}}" class="btn btn-primary">Delete</a>
     </div>
-  </div> --}}
+  </div>
+  {{/each}}
+{{/if}}
 </div>
 <script>
 
