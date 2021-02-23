@@ -12,7 +12,10 @@ $(document).ready(() => {
     const interested = $("#form-interest");
     const status = $("#form-status");
     const submit = $("#submit");
-// Add salary
+    // const eJob = $("#edit-button");
+    // const dJob = $("#delete-button");
+    const savedFavorites = document.querySelector(".card-body")
+    // Add salary
 
     submit.on("click", e => {
         e.preventDefault();
@@ -47,8 +50,36 @@ $(document).ready(() => {
         // );
 
 
+        savedFavorites.addEventListener("click", e => {
+            console.log(e.target)
+            console.log(e.target.matches(`.delete-button-${id}`))
+            // const target = e.target
+            // // const id = target.getAttribute("#id")
+            // if (e.target.matches(".delete-button")){
+            //     deleteJob(id)
+            // }
+        })
 
 
+        // const deleteJob = (id) => {
+        //     return $.ajax({
+        //       url: `/api/todos/${id}`,
+        //       method: "DELETE",
+        //     }).then(dbJobs)
+        //   };
+
+
+
+        // eJob.on("click", e =>{
+        //     console.log(eJob)
+        // })
+
+        // const updateJob = () => {
+        //     return $.ajax({
+        //         url: `/api/todos/${id}`,
+        //         method: "PUT"
+        //     })
+        // }
 
 
 

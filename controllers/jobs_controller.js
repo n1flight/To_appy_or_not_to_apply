@@ -2,8 +2,7 @@
 var express = require('express')
 var router = express.Router();
 var jobs = require('../models/jobs')
-var db = require("../models");
-
+var db = require("../models")
 console.log("hello world")
 
 
@@ -35,6 +34,25 @@ router.post("/api/favorites" , function (req, res) {
         status: req.body.status
     }).then(function(dbJobs) {
         res.json(dbJobs)
+    })
+})
+
+router.put("/api/favorites/:id" , function (req, res) {
+    const id = req.params.id
+    db.Jobs.update(req.body, {
+        where:{id}
+    }
+    ).then(function(dbJobs) {
+        res.status(200).send(dbJobs)
+    })
+})
+
+router.delete('/api/favorites/:id', function (req,res) {
+    const id = req.params.id
+    db.Jobs.destroy({
+        where: { id }
+    }).then(function(dbJobs) {
+        res.status(200).send(dbJobs)
     })
 })
 
