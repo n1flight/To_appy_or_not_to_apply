@@ -4,6 +4,19 @@ $(document).ready(() => {
   const emailInput = $("input#email-input");
   const passwordInput = $("input#password-input");
 
+  $('.login').submit(function () {
+    $(this)
+      .find('.btn i')
+      .removeAttr('class')
+      .addClass('fa fa-check')
+      .css({ color: '#fff' });
+    $('.btn').css({ background: '#2ecc71', 'border-color': '#2ecc71' });
+    $('.feedback').show().animate({ opacity: '1', bottom: '-80px' }, 400);
+    $('input').css({ 'border-color': '#2ecc71' });
+    return false;
+  });
+
+
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on("submit", event => {
     event.preventDefault();
