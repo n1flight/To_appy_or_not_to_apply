@@ -52,7 +52,7 @@ module.exports = function(app) {
     }    
 
   });
-  app.get("api/members/favorites", async (req, res) => {
+  app.get("/api/members/favorites", async (req, res) => {
     try { 
       const favorite = await db.password_demo.findall()
       response.json(favorite)
@@ -61,26 +61,26 @@ module.exports = function(app) {
     }
   });
 
-  app.post("api/members/favorites", async (req, res) => {
-    try { 
-      await db.password_demo.create(req.body)
-      res,status().send()
-    }catch(err) {
-      res.status(500).send(err)
-    }
-  });
+  // app.post("api/members/favorites", async (req, res) => {
+  //   try { 
+  //     await db.password_demo.create(req.body)
+  //     res,status().send()
+  //   }catch(err) {
+  //     res.status(500).send(err)
+  //   }
+  // });
 
-  app.put("api/members/favorites/:id", async (req,res) => {
-    try{
-      const id = req.params.id
-      await db.jobSearch_db.update(req.body ,{
-        where: {id}
-      })
-      res.status(200).send()
-    }catch(err) {
-      res.status(500).send(err)
-    }
-  })
+  // app.put("api/members/favorites/:id", async (req,res) => {
+  //   try{
+  //     const id = req.params.id
+  //     await db.jobSearch_db.update(req.body ,{
+  //       where: {id}
+  //     })
+  //     res.status(200).send()
+  //   }catch(err) {
+  //     res.status(500).send(err)
+  //   }
+  // })
 
 };
 

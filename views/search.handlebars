@@ -1,0 +1,101 @@
+<h1>Search Jobs</h1>
+
+<div class="container">
+  {{!-- Form --}}
+  <form>
+    <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+
+
+    </div>
+    <br>
+    <input class="btn btn-primary" type="submit" id="submit" value="Submit">
+  </form>
+
+  {{!-- <div class="card">
+    <h5 class="card-header" id="title-{{#each id}}">Title</h5>
+    <div class="card-body">
+      <h5 class="card-title" id="company-{{#id}}">Company Name</h5>
+      <br>
+      <p class="card-text" id="location-{{#each id}}">Location:</p>
+      <p class="card-text" id="snippet-{{#each id}}">Description:</p>
+      <p class="card-text" id="link-{{#each id}}">URL:</p>
+      <p class="card-text" id="deadline-{{#each id}}">Deadline:</p>
+      <p class="card-text" id="interest-{{#each id}}">Interest:</p>
+      <p class="card-text" id="notes-{{#each id}}">Notes:</p>
+      <p class="card-text" id="status-{{#each id}}">Status:</p>
+      <a href="#" id="edit-button-{{#each id}}" class="btn btn-primary">Edit</a>
+      <a href="#" id="delete-button-{{#each id}}" class="btn btn-primary">Delete</a>
+    </div>
+  </div> --}}
+</div>
+<script>
+
+  $(document).ready(() => {
+    // This file just does a GET request to figure out which user is logged in
+    // and updates the HTML on the page
+    $.get("/api/user_data").then(data => {
+      $(".member-name").text(data.email);
+    });
+  });
+
+
+</script>
