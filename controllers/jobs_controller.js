@@ -9,14 +9,8 @@ console.log("hello world")
 router.get("/home", function (req, res) {
 
     db.Jobs.findAll({}).then(function (dbJobs) {
-
-        // dbJobs = JSON.stringify(dbJobs)
-
         res.render('home', { Jobs: dbJobs })
     })
-    
-    // var test = { data: "data"}
-    // res.render('home', {test})
 })
 
 router.post("/api/home" , function (req, res) {
@@ -38,7 +32,6 @@ router.post("/api/home" , function (req, res) {
 })
 
 router.put("/api/home/:id" , function (req, res) {
-
     db.Jobs.update({
         notes: req.body.notes,
         interested: req.body.interested,
@@ -50,13 +43,6 @@ router.put("/api/home/:id" , function (req, res) {
       }).then(function(dbJobs) {
         res.json(dbJobs);
       });
-    // const id = req.params.id
-    // db.Jobs.update(req.body, {
-    //     where:{id}
-    // }
-    // ).then(function(dbJobs) {
-    //     res.status(200).send(dbJobs)
-    // })
 })
 
 router.delete('/api/home/:id', function (req,res) {
@@ -64,7 +50,6 @@ router.delete('/api/home/:id', function (req,res) {
     db.Jobs.destroy({
         where: { id }
     }).then(function(dbJobs) {
-        // res.status(200).send(dbJobs)
         res.sendStatus(200)
     })
 })

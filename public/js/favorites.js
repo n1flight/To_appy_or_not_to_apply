@@ -12,16 +12,10 @@ $(document).ready(() => {
     const interested = $("#form-interest");
     const status = $("#form-status");
     const submit = $("#submit");
-    // const eJob = $("#edit-button");
-    // const dJob = $("#delete-button");
-    const savedFavorites = document.querySelector(".card-body")
     // Add salary
 
     submit.on("click", e => {
         e.preventDefault();
-
-        // console.log(jobTitle.val())
-
         const jobInput = {
             jobtitle: jobTitle.val(),
             company: company.val(),
@@ -39,41 +33,34 @@ $(document).ready(() => {
 
         // function submitForm() {
         $.post("/api/home", jobInput)
-        // {
-        // jobtitle: jobTitle,
-        // company: company,
-        // location: location,
-        // snippit: snippit,
-        // deadline: deadline,
-        // notes: notes,
-        // }
-        // );
-
         location.reload();
     })
-
     $(`.edit-button`).on("click", function (e) {
         e.preventDefault();
         const id = parseInt(this.id)
+        fetch("api/home", {
+            method: "POST",
+            body: JSON.stringify({ 
+                notes,
+                status,
+                interested
+             }),
+        })
         console.log(id)
         $.ajax({
             url: `/api/home/${id}`,
             method: "PUT",
         })
-
         // location.reload();
     })
 
     $(`.delete-button`).on("click", function (e) {
         e.preventDefault();
         const id = parseInt(this.id)
-        console.log(id)
         $.ajax({
             url: `/api/home/${id}`,
             method: "DELETE",
         })
-
         location.reload();
     })
-
 });
