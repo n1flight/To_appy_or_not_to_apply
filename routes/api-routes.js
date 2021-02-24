@@ -52,7 +52,7 @@ module.exports = function(app) {
     }    
 
   });
-  app.get("api/members/favorites", async (req, res) => {
+  app.get("/api/members/favorites", async (req, res) => {
     try { 
       const favorite = await db.password_demo.findall()
       response.json(favorite)

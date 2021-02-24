@@ -38,7 +38,7 @@ $(document).ready(() => {
         console.log(jobInput)
 
         // function submitForm() {
-        $.post("/api/favorites", jobInput) 
+        $.post("/api/home", jobInput) 
         // {
             // jobtitle: jobTitle,
             // company: company,
@@ -49,30 +49,12 @@ $(document).ready(() => {
         // }
         // );
 
-
-        savedFavorites.addEventListener("click", e => {
-            console.log(e.target)
-            console.log(e.target.matches(`.delete-button-${id}`))
-            // const target = e.target
-            // // const id = target.getAttribute("#id")
-            // if (e.target.matches(".delete-button")){
-            //     deleteJob(id)
-            // }
-        })
+        location.reload();
+    })
 
 
-        // const deleteJob = (id) => {
-        //     return $.ajax({
-        //       url: `/api/todos/${id}`,
-        //       method: "DELETE",
-        //     }).then(dbJobs)
-        //   };
+     
 
-
-
-        // eJob.on("click", e =>{
-        //     console.log(eJob)
-        // })
 
         // const updateJob = () => {
         //     return $.ajax({
@@ -83,5 +65,29 @@ $(document).ready(() => {
 
 
 
-    })
+        $(`.delete-button`).on("click",  function(e) {
+            e.preventDefault();
+            const id = parseInt(this.id)
+            console.log(id)
+            $.ajax({
+                url: `/api/home/${id}`,
+                method: "DELETE",
+              })
+            
+            location.reload();
+        })
+
+    // savedFavorites.addEventListener("click", e => {
+    //     const target = e.target
+    //     const id = target.getAttribute("#id")
+    //     console.log(e.target)
+    //     console.log(e.target.matches(`#delete-button-${id}`))
+        
+        
+    //     if (e.target.matches("#delete-button-")){
+    //         deleteJob(id)
+    //     }
+    // })
+
+
 });
