@@ -25,18 +25,21 @@
       <div class="col">
         <input type="text" class="form-control" id="form-link" placeholder="url">
       </div>
-
-      <div class="form-group">
-        {{!-- <label for="form-salary">Salary:</label> --}}
-        <input type="number" class="form-control" id="form-salary" aria-describedby="salary"
-          placeholder="Salary">
+    </div>
+    <br>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          {{!-- <label for="form-salary">Salary:</label> --}}
+          <input type="number" class="form-control" id="form-salary" aria-describedby="salary" placeholder="Salary">
+        </div>
       </div>
-
       <div class="col">
         {{!-- This is going to have to be changed to Date format--like a calendar --}}
         <input type="text" class="form-control" id="form-deadline" placeholder="Deadline">
       </div>
     </div>
+
     <br>
     <div class="row">
       <div class="col">
@@ -93,7 +96,8 @@
     </div>
   </div>
   {{/each}}
-{{/if}}
+  {{/if}}
+</div>
 </div>
 <script>
 
