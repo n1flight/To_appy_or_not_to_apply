@@ -1,3 +1,15 @@
+// Script to the calendar drop-down function
+$(document).ready(function () {
+    $("#form-deadline").datepicker({
+        format: 'yyyy-mm-dd'
+    });
+
+    $('#form-deadline').change(function () {
+
+    });
+
+});
+
 $(document).ready(() => {
     console.log("Loading page")
     // all the documents being added
@@ -7,7 +19,7 @@ $(document).ready(() => {
     const snippit = $("input#form-snippit");
     const url = $("input#form-link");
     const salary = $("#form-salary");
-    const deadline = $("input#form-deadline");
+    const deadline = $("#form-deadline");
     const notes = $("input#form-notes");
     const interested = $("#form-interest");
     const status = $("#form-status");
@@ -51,7 +63,7 @@ $(document).ready(() => {
             url: `/api/home/${id}`,
             method: "PUT",
         })
-        // location.reload();
+        location.reload();
     })
 
     $(`.delete-button`).on("click", function (e) {
