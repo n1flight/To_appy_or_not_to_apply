@@ -38,13 +38,25 @@ router.post("/api/home" , function (req, res) {
 })
 
 router.put("/api/home/:id" , function (req, res) {
-    const id = req.params.id
-    db.Jobs.update(req.body, {
-        where:{id}
-    }
-    ).then(function(dbJobs) {
-        res.status(200).send(dbJobs)
-    })
+
+    db.Jobs.update({
+        notes: req.body.notes,
+        interested: req.body.interested,
+        status: req.body.status
+      }, {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbJobs) {
+        res.json(dbJobs);
+      });
+    // const id = req.params.id
+    // db.Jobs.update(req.body, {
+    //     where:{id}
+    // }
+    // ).then(function(dbJobs) {
+    //     res.status(200).send(dbJobs)
+    // })
 })
 
 router.delete('/api/home/:id', function (req,res) {

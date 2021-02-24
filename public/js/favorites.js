@@ -38,56 +38,42 @@ $(document).ready(() => {
         console.log(jobInput)
 
         // function submitForm() {
-        $.post("/api/home", jobInput) 
+        $.post("/api/home", jobInput)
         // {
-            // jobtitle: jobTitle,
-            // company: company,
-            // location: location,
-            // snippit: snippit,
-            // deadline: deadline,
-            // notes: notes,
+        // jobtitle: jobTitle,
+        // company: company,
+        // location: location,
+        // snippit: snippit,
+        // deadline: deadline,
+        // notes: notes,
         // }
         // );
 
         location.reload();
     })
 
-
-     
-
-
-        // const updateJob = () => {
-        //     return $.ajax({
-        //         url: `/api/todos/${id}`,
-        //         method: "PUT"
-        //     })
-        // }
-
-
-
-        $(`.delete-button`).on("click",  function(e) {
-            e.preventDefault();
-            const id = parseInt(this.id)
-            console.log(id)
-            $.ajax({
-                url: `/api/home/${id}`,
-                method: "DELETE",
-              })
-            
-            location.reload();
+    $(`.edit-button`).on("click", function (e) {
+        e.preventDefault();
+        const id = parseInt(this.id)
+        console.log(id)
+        $.ajax({
+            url: `/api/home/${id}`,
+            method: "PUT",
         })
 
-    // savedFavorites.addEventListener("click", e => {
-    //     const target = e.target
-    //     const id = target.getAttribute("#id")
-    //     console.log(e.target)
-    //     console.log(e.target.matches(`#delete-button-${id}`))
-        
-        
-    //     if (e.target.matches("#delete-button-")){
-    //         deleteJob(id)
-    //     }
-    // })
+        // location.reload();
+    })
 
+    $(`.delete-button`).on("click", function (e) {
+        e.preventDefault();
+        const id = parseInt(this.id)
+        console.log(id)
+        $.ajax({
+            url: `/api/home/${id}`,
+            method: "DELETE",
+        })
+
+        location.reload();
+    })
 
 });
