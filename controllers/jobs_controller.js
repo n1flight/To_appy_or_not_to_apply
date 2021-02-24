@@ -28,6 +28,8 @@ router.post("/api/home" , function (req, res) {
         status: req.body.status
     }).then(function(dbJobs) {
         res.json(dbJobs)
+    }).catch(function (error){
+        if (error) throw error
     })
 })
 
@@ -42,7 +44,9 @@ router.put("/api/home/:id" , function (req, res) {
         }
       }).then(function(dbJobs) {
         res.json(dbJobs);
-      });
+      }).catch(function (error){
+          if (error) throw error
+      })
 })
 
 router.delete('/api/home/:id', function (req,res) {
@@ -51,10 +55,10 @@ router.delete('/api/home/:id', function (req,res) {
         where: { id }
     }).then(function(dbJobs) {
         res.sendStatus(200)
+    }).catch(function (error){
+        if (error) throw error
     })
 })
-
-
 
 // Setting up router for a search page
 // router.get("/search", function (req, res) {
