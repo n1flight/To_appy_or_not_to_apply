@@ -34,6 +34,8 @@ router.post("/api/home" , function (req, res) {
         status: req.body.status
     }).then(function(dbJobs) {
         res.json(dbJobs)
+    }).catch(function (error){
+        if (error) throw error
     })
 })
 
@@ -49,7 +51,9 @@ router.put("/api/home/:id" , function (req, res) {
         }
       }).then(function(dbJobs) {
         res.json(dbJobs);
-      });
+      }).catch(function (error){
+          if (error) throw error
+      })
     // const id = req.params.id
     // db.Jobs.update(req.body, {
     //     where:{id}
@@ -66,6 +70,8 @@ router.delete('/api/home/:id', function (req,res) {
     }).then(function(dbJobs) {
         // res.status(200).send(dbJobs)
         res.sendStatus(200)
+    }).catch(function (error){
+        if (error) throw error
     })
 })
 
