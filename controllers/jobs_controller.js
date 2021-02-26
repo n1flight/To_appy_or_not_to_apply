@@ -35,14 +35,15 @@ router.post("/api/home" , function (req, res) {
 
 
 router.put("/api/home/:id", function (req, res) {
-    const id = req.params.id
+    const id = req.params.id 
+    console.log("put " + id)
     db.Jobs.update(req.body, {
         where: { id }
     }).then(function (dbJobs) {
         res.json(dbJobs);
     }).catch(function (error) {
         if (error) throw error
-    })
+    }) 
 })
 
 router.delete('/api/home/:id', function (req,res) {

@@ -64,6 +64,7 @@ $(document).ready(() => {
     $('.save-button').on("click", function (e) {
         // e.preventDefault()
         const jobUpdate = {
+            id: e.target.id,
             jobtitle: jobTitle.val(),
             company: company.val(),
             formattedLocation: formattedLocation.val(),
@@ -75,6 +76,12 @@ $(document).ready(() => {
             notes: notes.val(),
             status: status.val(),
         }
+
+        // const jobUpdate2 = {
+        //     id: e.target.id,
+        //     jobtitle: jobTitle.val(),
+        //     company: company.val(),
+        // }
         updateJobs(jobUpdate);
         location.reload();
     })
@@ -82,10 +89,12 @@ $(document).ready(() => {
     function updateJobs (jobs) {
         $.ajax({
         method: "PUT",
-        url: "/api/home",
+        url: "/api/home/" + jobs.id,
         data: jobs
       }).then(jobs);
     }
+
+
     $('.cancel-button').on("click", function (e) {
 
     })
