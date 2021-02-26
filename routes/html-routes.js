@@ -29,5 +29,5 @@ module.exports = function(app) {
 };
 
 app.get("/home", isAuthenticated, (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/members.html"));
+  res.sendFile(path.join(__dirname, "../public/singup.html"));
 });
