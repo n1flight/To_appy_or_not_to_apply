@@ -22,82 +22,86 @@
 <div class="container">
   {{!-- Form --}}
   <form>
-    <div class="row">
-      <div class="col">
-        <input type="text" class="form-control" id="form-title" placeholder="Job Title">
+    <fieldset>
+      <legend class="legend">Favorite Jobs</legend>
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" id="form-title" placeholder="Job Title">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="form-company" placeholder="Company">
+        </div>
       </div>
-      <div class="col">
-        <input type="text" class="form-control" id="form-company" placeholder="Company">
+      <br>
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" id="form-location" placeholder="Location">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="form-snippit" placeholder="Description">
+        </div>
       </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col">
-        <input type="text" class="form-control" id="form-location" placeholder="Location">
+      <br>
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" id="form-link" placeholder="url">
+        </div>
+        <div class="col">
+          {{!-- <div class="form-group"> --}}
+            {{!-- <label for="form-salary">Salary:</label> --}}
+            <input type="number" class="form-control" id="form-salary" aria-describedby="salary" placeholder="Salary">
+            {{!--
+          </div> --}}
+        </div>
       </div>
-      <div class="col">
-        <input type="text" class="form-control" id="form-snippit" placeholder="Description">
-      </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col">
-        <input type="text" class="form-control" id="form-link" placeholder="url">
-      </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col">
-        <div class="form-group">
-          {{!-- <label for="form-salary">Salary:</label> --}}
-          <input type="number" class="form-control" id="form-salary" aria-describedby="salary" placeholder="Salary">
+      <br>
+      <div class="row">
+        <div class="col">Deadline:
+          <input type="text" class="form-control" id="form-deadline">
+        </div>
+
+        {{!-- <div class="col">
+          <input type="text" class="form-control" id="form-deadline" placeholder="Deadline">
+        </div> --}}
+        <div class="col">
+          <label for="form-notes">Notes</label>
+          <input type="text" class="form-control" id="form-notes">
         </div>
       </div>
 
-      <div class="col-sm-6 form-group">Deadline:
-                <input type="text" id="form-deadline">
-                </input>
-            </div>
-      {{!-- <div class="col">
-        <input type="text" class="form-control" id="form-deadline" placeholder="Deadline">
-      </div> --}}
-    </div>
-
-    <br>
-    <div class="row">
-      <div class="col">
-        <label for="form-notes">Notes</label>
-        <input type="text" class="form-control" id="form-notes">
-      </div>
-      <div class="col">
-        <label for="form-status">Application Status</label>
-        <select class="form-control" id="form-status">
-          <option>Interested</option>
-          <option>Working on Application</option>
-          <option>Applied</option>
-          <option>Interviewing</option>
-          <option>Waiting for offer</option>
-          <option>Offered Job</option>
-          <option>Unknown</option>
-          <option>No offer</option>
-        </select>
-      </div>
-      <div class="col">
+      <br>
+      <div class="row">
         <div class="col">
-          <label for="form-interest">Interest Level</label>
-          <select class="form-control" id="form-interest">
-            <option>High</option>
-            <option>Medium</option>
-            <option>Low</option>
+          <label for="form-status">Application Status</label>
+          <select class="form-control" id="form-status">
+            <option>Interested</option>
+            <option>Working on Application</option>
+            <option>Applied</option>
+            <option>Interviewing</option>
+            <option>Waiting for offer</option>
+            <option>Offered Job</option>
+            <option>Unknown</option>
+            <option>No offer</option>
           </select>
         </div>
+        <div class="col">
+          <div class="col">
+            <label for="form-interest">Interest Level</label>
+            <select class="form-control" id="form-interest">
+              <option>High</option>
+              <option>Medium</option>
+              <option>Low</option>
+            </select>
+          </div>
+        </div>
+
+
       </div>
-
-
-    </div>
-    <br>
-    <input class="btn btn-primary" type="submit" id="submit" value="Submit">
+      <br>
+      <input class="btn btn-primary" type="submit" id="submit" value="Submit">
+    </fieldset>
   </form>
+
 
   {{#if Jobs}}
   {{#each Jobs}}
@@ -106,14 +110,14 @@
     <div class="card-body">
       <h5 class="card-title" id="company-{{id}}">{{company}}</h5>
       <br>
-      <p class="card-text" id="salary-{{id}}">Salary:{{salary}}</p>
-      <p class="card-text" id="formattedLocation-{{id}}">Location:{{formattedLocation}}</p>
-      <p class="card-text" id="snippet-{{id}}">Description:{{snippet}}</p>
-      <p class="card-text" id="url-{{id}}">URL:{{url}}</p>
-      <p class="card-text" id="deadline-{{id}}">Deadline:{{deadline}}</p>
-      <p class="card-text" id="interest-{{id}}">Interest:{{interested}}</p>
-      <p class="card-text" id="notes-{{id}}">Notes:{{notes}}</p>
-      <p class="card-text" id="status-{{id}}">Status:{{status}}</p>
+      <p class="card-text" id="salary-{{id}}"><span>Salary: </span>{{salary}}</p>
+      <p class="card-text" id="formattedLocation-{{id}}"><span>Location: </span>{{formattedLocation}}</p>
+      <p class="card-text" id="snippet-{{id}}"><span>Description: </span>{{snippet}}</p>
+      <p class="card-text" id="url-{{id}}"><span>URL: </span>{{url}}</p>
+      <p class="card-text" id="deadline-{{id}}"><span>Deadline: </span>{{deadline}}</p>
+      <p class="card-text" id="interest-{{id}}"><span>Interest: </span>{{interested}}</p>
+      <p class="card-text" id="notes-{{id}}"><span>Notes: </span>{{notes}}</p>
+      <p class="card-text" id="status-{{id}}"><span>Status: </span>{{status}}</p>
       <a href="#" id="{{id}}" class="edit-button btn btn-primary">Edit</a>
       <a href="#" id="{{id}}" class="delete-button btn btn-primary">Delete</a>
     </div>
