@@ -36,7 +36,6 @@ $(document).ready(() => {
 
     submit.on("click", e => {
         e.preventDefault();
-        location.reload();
         const jobInput = {
             jobtitle: jobTitle.val(),
             company: company.val(),
@@ -52,24 +51,7 @@ $(document).ready(() => {
         $.post("/api/home", jobInput)
         location.reload();
     })
-    // $(`.edit-button`).on("click", function (e) {
-    //     e.preventDefault();
-    //     const id = parseInt(this.id)
-    //     fetch("api/home", {
-    //         method: "POST",
-    //         body: JSON.stringify({ 
-    //             notes,
-    //             status,
-    //             interested
-    //          }),
-    //     })
-    //     console.log(id)
-    //     $.ajax({
-    //         url: `/api/home/${id}`,
-    //         method: "PUT",
-    //     })
-    //     location.reload();
-    // })
+ 
     $('.save-button').on("click", function (e) {
         e.preventDefault()
         const id = parseInt(this.id)
@@ -116,6 +98,7 @@ $(document).ready(() => {
             url: "/api/home/" + jobs.id,
             data: jobs
         }).then(jobs);
+        location.reload();
     }
 
 
@@ -135,7 +118,7 @@ $(document).ready(() => {
 
     $(`.delete-button`).on("click", function (e) {
         e.preventDefault();
-        location.reload();
+        
         const id = parseInt(this.id)
         $.ajax({
             url: `/api/home/${id}`,
