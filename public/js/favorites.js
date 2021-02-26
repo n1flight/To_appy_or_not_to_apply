@@ -40,10 +40,6 @@ $(document).ready(() => {
             notes: notes.val(),
             status: status.val(),
         }
-        // submitForm(jobInput.val())
-        console.log(jobInput)
-
-        // function submitForm() {
         $.post("/api/home", jobInput)
         location.reload();
     })
@@ -65,6 +61,37 @@ $(document).ready(() => {
     //     })
     //     location.reload();
     // })
+    $('.save-button').on("click", function (e) {
+        // e.preventDefault()
+        const jobUpdate = {
+            jobtitle: jobTitle.val(),
+            company: company.val(),
+            formattedLocation: formattedLocation.val(),
+            snippit: snippit.val(),
+            url: url.val(),
+            salary: parseFloat(salary.val()),
+            interested: interested.val(),
+            deadline: deadline.val(),
+            notes: notes.val(),
+            status: status.val(),
+        }
+        updateJobs(jobUpdate);
+        location.reload();
+    })
+
+    function updateJobs (jobs) {
+        $.ajax({
+        method: "PUT",
+        url: "/api/home",
+        data: jobs
+      }).then(jobs);
+    }
+    $('.cancel-button').on("click", function (e) {
+
+    })
+
+
+
 
     $('.edit-button').on("click", function (e) {
         // e.preventDefault()

@@ -33,20 +33,16 @@ router.post("/api/home" , function (req, res) {
     })
 })
 
-router.put("/api/home/:id" , function (req, res) {
-    db.Jobs.update({
-        notes: req.body.notes,
-        interested: req.body.interested,
-        status: req.body.status
-      }, {
-        where: {
-          id: req.body.id
-        }
-      }).then(function(dbJobs) {
+
+router.put("/api/home/:id", function (req, res) {
+    const id = req.params.id
+    db.Jobs.update(req.body, {
+        where: { id }
+    }).then(function (dbJobs) {
         res.json(dbJobs);
-      }).catch(function (error){
-          if (error) throw error
-      })
+    }).catch(function (error) {
+        if (error) throw error
+    })
 })
 
 router.delete('/api/home/:id', function (req,res) {
