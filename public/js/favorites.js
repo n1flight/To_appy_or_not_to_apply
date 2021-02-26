@@ -47,23 +47,36 @@ $(document).ready(() => {
         $.post("/api/home", jobInput)
         location.reload();
     })
-    $(`.edit-button`).on("click", function (e) {
-        e.preventDefault();
-        const id = parseInt(this.id)
-        fetch("api/home", {
-            method: "POST",
-            body: JSON.stringify({ 
-                notes,
-                status,
-                interested
-             }),
-        })
-        console.log(id)
-        $.ajax({
-            url: `/api/home/${id}`,
-            method: "PUT",
-        })
-        location.reload();
+    // $(`.edit-button`).on("click", function (e) {
+    //     e.preventDefault();
+    //     const id = parseInt(this.id)
+    //     fetch("api/home", {
+    //         method: "POST",
+    //         body: JSON.stringify({ 
+    //             notes,
+    //             status,
+    //             interested
+    //          }),
+    //     })
+    //     console.log(id)
+    //     $.ajax({
+    //         url: `/api/home/${id}`,
+    //         method: "PUT",
+    //     })
+    //     location.reload();
+    // })
+
+    $('.edit-button').on("click", function (e) {
+        // e.preventDefault()
+        var editfeilds = document.querySelectorAll(".job-card-edit-field")
+        var viewfields = document.querySelectorAll(".job-card-view-field")
+        
+        editfeilds.forEach(item => item.style.display = 'inline')
+        viewfields.forEach(item => item.style.display = 'none')
+        
+        
+
+
     })
 
     $(`.delete-button`).on("click", function (e) {
