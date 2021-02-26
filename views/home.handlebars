@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -23,7 +24,7 @@
   {{!-- Form --}}
   <form>
     <fieldset>
-      <legend class="legend">Favorite Jobs</legend>
+      <legend class="legend">Enter a job here</legend>
       <div class="row">
         <div class="col">
           <input type="text" class="form-control" id="form-title" placeholder="Job Title">
@@ -47,11 +48,7 @@
           <input type="text" class="form-control" id="form-link" placeholder="url">
         </div>
         <div class="col">
-          {{!-- <div class="form-group"> --}}
-            {{!-- <label for="form-salary">Salary:</label> --}}
-            <input type="number" class="form-control" id="form-salary" aria-describedby="salary" placeholder="Salary">
-            {{!--
-          </div> --}}
+          <input type="number" class="form-control" id="form-salary" aria-describedby="salary" placeholder="Salary">
         </div>
       </div>
       <br>
@@ -106,61 +103,117 @@
   {{#if Jobs}}
   {{#each Jobs}}
   <div class="card">
-    <h5 class="card-header" id="title-{{{id}}}">{{jobtitle}}</h5>
+    <div class="col">
+      <span class="job-card-view-field">
+        <h5 class="card-header" id="title-{{{id}}}">{{jobtitle}}</h5>
+      </span> <input type="text" class="job-card-edit-field form-control" id="jobTitle-edit-{{ id }}"
+        value="{{jobtitle}}" style="display: none;"></input>
+    </div>
+
+
     <div class="card-body">
-      <h5 class="card-title" id="company-{{id}}">{{company}}</h5>
+      <div class="row">
+        <span class="job-card-view-field">
+          <h5 class="card-title" id="company-{{id}}">{{company}}</h5>
+        </span>
+        <input type="text" class="job-card-edit-field form-control" id="company-edit-{{ id }}" value="{{company}}"
+          style="display: none;">
+      </div>
       <br>
-      <p class="card-text" id="salary-{{id}}"><span>Salary: </span><span class="job-card-view-field">{{salary}}</span> <input type="number" class="job-card-edit-field" id="salary-edit-{{ id }}" value="{{salary}}" style="display: none;"></p>
 
 
-      <p class="card-text" id="formattedLocation-{{id}}"><span>Location: </span><span class="job-card-view-field">{{formattedLocation}}</span> <input type="text" class="job-card-edit-field" id="formattedLocation-edit-{{ id }}" value="{{formattedLocation}}" style="display: none;"></input></p>
+      <div class="row">
+        <div class="col">
+          <div class="card-text" id="salary-{{id}}"><span>Salary: </span><span
+              class="job-card-view-field">{{salary}}</span>
+            <input type="number" class="job-card-edit-field form-control" id="salary-edit-{{ id }}" value="{{salary}}"
+              aria-describedby="salary" style="display: none;">
+          </div>
+        </div>
+        <div class="col">
+          <div class="card-text" id="formattedLocation-{{id}}"><span>Location: </span><span
+              class="job-card-view-field">{{formattedLocation}}</span> <input type="text"
+              class="job-card-edit-field form-control" id="formattedLocation-edit-{{ id }}"
+              value="{{formattedLocation}}" style="display: none;"></input></div>
+        </div>
+      </div>
 
-      <p class="card-text" id="snippet-{{id}}"><span>Description: </span><span class="job-card-view-field">{{snippit}}</span> <input type="text" class="job-card-edit-field" id="snippit-edit-{{id}}" value="{{snippit}}" style="display: none;"></p>
+      <div class="row">
+        <div class="col">
+          <div class="card-text" id="snippet-{{id}}"><span>Description: </span><span
+              class="job-card-view-field">{{snippit}}</span> <input type="text" class="job-card-edit-field form-control"
+              id="snippit-edit-{{id}}" value="{{snippit}}" style="display: none;"></div>
+        </div>
+        <div class="col">
 
+          <div class="card-text" id="url-{{id}}"><span>URL: </span><span class="job-card-view-field"><a
+                href="{{url}}">{{url}}</a></span>
+            <input type="text" class="job-card-edit-field form-control" id="url-edit-{{ id }}" value="{{url}}"
+              style="display: none;">
+          </div>
+        </div>
+      </div>
 
-      <p class="card-text" id="url-{{id}}"><span>URL: </span><span class="job-card-view-field">{{url}}</span> <input type="text" class="job-card-edit-field" id="url-edit-{{ id }}" value="{{url}}" style="display: none;"></p>
+      <div class="row">
+        <div class="col">
+          <div class="card-text" id="deadline-{{id}}"><span>Deadline: </span><span
+              class="job-card-view-field">{{deadline}}</span> <input type="text"
+              class="job-card-edit-field form-control date-edit" id="deadline-edit-{{ id }}" value="{{deadline}}"
+              style="display: none;"></div>
+        </div>
+        <div class="col">
+          <div class="card-text" id="notes-{{id}}"><span>Notes: </span><span
+              class="job-card-view-field">{{notes}}</span>
+            <input type="text" class="job-card-edit-field form-control" id="notes-edit-{{ id }}" value="{{notes}}"
+              style="display: none;">
+          </div>
+        </div>
+      </div>
 
-
-      <p class="card-text" id="deadline-{{id}}"><span>Deadline: </span><span class="job-card-view-field">{{deadline}}</span> <input type="text" class="job-card-edit-field" id="deadline-edit-{{ id }}" value="{{deadline}}" style="display: none;"></p>
-
-
-      <p class="card-text" id="interest-{{id}}"><span>Interest: </span>{{interested}} 
-      <span class= "job-card-edit-field" id="interested-edit-{{id}}" value="{{interested}}" style="display: none;">
-      <select class="form-control" id="form-interest">
-              <option>High</option>
-              <option>Medium</option>
-              <option>Low</option>
-            </select>
-          </span></p>
-
-
-      <p class="card-text" id="notes-{{id}}"><span>Notes: </span><span class="job-card-view-field">{{notes}}</span> <input type="text" class="job-card-edit-field" id="notes-edit-{{ id }}" value="{{notes}}" style="display: none;"></p>
-
-
-      <p class="card-text" id="status-{{id}}"><span>Status: </span>{{status}}<span class= "job-card-edit-field" id="status-edit-{{id}}" value="{{status}}" style="display: none;">
-      <select class="form-control" id="form-status">
-            <option>Interested</option>
-            <option>Working on Application</option>
-            <option>Applied</option>
-            <option>Interviewing</option>
-            <option>Waiting for offer</option>
-            <option>Offered Job</option>
-            <option>Unknown</option>
-            <option>No offer</option>
-          </select>
-          </span></p>
-
-      
-      <a href="#" id="{{id}}" class="edit-button btn btn-primary">Edit</a>
-      <a href="#" id="{{id}}" class="delete-button btn btn-primary">Delete</a>
-      <a href="#" id="{{id}}" class="save-button btn btn-primary">save</a>
-      <a href="#" id="{{id}}" class="cancel-button btn btn-primary">cancel</a>
+      <div class="row">
+        <div class="col">
+          <div class="card-text" ><span>Interest: </span>{{interested}}
+            <span class="job-card-edit-field"  value="{{interested}}" style="display: none;">
+              <select class="form-control" id="interested-edit-{{id}}">
+                <option>{{interested}}</option>
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+              </select>
+            </span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card-text" ><span>Status: </span>{{status}}<span class="job-card-edit-field"
+               value="{{status}}" style="display: none;">
+              <select class="form-control" id="status-edit-{{id}}">
+                <option>{{status}}</option>
+                <option>Interested</option>
+                <option>Working on Application</option>
+                <option>Applied</option>
+                <option>Interviewing</option>
+                <option>Waiting for offer</option>
+                <option>Offered Job</option>
+                <option>Unknown</option>
+                <option>No offer</option>
+              </select>
+            </span>
+          </div>
+        </div>
+      </div>
+  <br>
+      <a href="#" id="{{id}}" class="edit-button btn btn-primary job-card-view-field">Edit</a>
+      <a href="#" id="{{id}}" class="delete-button btn btn-primary job-card-view-field">Delete</a>
+      <a href="#" id="{{id}}" style="display: none;" class="save-button btn btn-primary job-card-edit-field">Save</a>
+      <a href="#" id="{{id}}" class="cancel-button btn btn-primary job-card-edit-field" style="display: none;">Cancel</a>
     </div>
   </div>
+
   {{/each}}
   {{/if}}
 </div>
-</div>
+{{!-- </div>
+</div> --}}
 <script>
 
   $(document).ready(() => {
