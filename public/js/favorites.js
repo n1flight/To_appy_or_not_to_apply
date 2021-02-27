@@ -17,6 +17,7 @@ $(document).ready(function () {
     });
 
 });
+ 
 
 $(document).ready(() => {
     console.log("Loading page")
@@ -65,8 +66,6 @@ $(document).ready(() => {
         const deadlineEdit = $("#deadline-edit-" + id)
         const notesEdit = $("input#notes-edit-" + id)
         const statusEdit = $("#status-edit-" + id)
-
-        console.log(formattedLocationEdit)
         // location.reload();
         const jobUpdate = {
             id: e.target.id,
@@ -81,13 +80,6 @@ $(document).ready(() => {
             notes: notesEdit.val(),
             status: statusEdit.val(),
         }
-        console.log(jobUpdate)
-
-        // const jobUpdate2 = {
-        //     id: e.target.id,
-        //     jobtitle: jobTitle.val(),
-        //     company: company.val(),
-        // }
         updateJobs(jobUpdate);
         location.reload();
     })
@@ -106,14 +98,16 @@ $(document).ready(() => {
         location.reload();
     })
 
-    $('.edit-button').on("click", function (e) {
-        e.preventDefault()
-        var editfields = document.querySelectorAll(".job-card-edit-field")
-        var viewfields = document.querySelectorAll(".job-card-view-field")
-
-        editfields.forEach(item => item.style.display = 'inline')
-        viewfields.forEach(item => item.style.display = 'none')
-
+        
+        $('.edit-button').on("click", function (e) {
+            e.preventDefault()    
+            const id = e.target.id
+            let editfields = document.querySelectorAll("#card-" + id + " .job-card-edit-field")
+            let viewfields = document.querySelectorAll("#card-" + id + " .job-card-view-field")
+        
+            editfields.forEach(item => item.style.display = 'inline')
+            viewfields.forEach(item => item.style.display = 'none')
+    
     })
 
     $(`.delete-button`).on("click", function (e) {

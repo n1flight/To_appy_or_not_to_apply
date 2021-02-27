@@ -33,7 +33,6 @@ router.post("/api/home" , function (req, res) {
     })
 })
 
-
 router.put("/api/home/:id", function (req, res) {
     const id = req.params.id 
     console.log("put " + id)
@@ -56,6 +55,7 @@ router.delete('/api/home/:id', function (req,res) {
         if (error) throw error
     })
 })
+
 
 // Setting up router for a search page
 // router.get("/search", function (req, res) {
