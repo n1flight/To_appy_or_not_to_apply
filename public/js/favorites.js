@@ -17,7 +17,7 @@ $(document).ready(function () {
     });
 
 });
- 
+
 
 $(document).ready(() => {
     console.log("Loading page")
@@ -37,6 +37,7 @@ $(document).ready(() => {
 
     submit.on("click", e => {
         e.preventDefault();
+
         const jobInput = {
             jobtitle: jobTitle.val(),
             company: company.val(),
@@ -49,14 +50,16 @@ $(document).ready(() => {
             notes: notes.val(),
             status: status.val(),
         }
+
         $.post("/api/home", jobInput)
         location.reload();
+
     })
- 
+
     $('.save-button').on("click", function (e) {
         e.preventDefault()
         const id = parseInt(this.id)
-        const jobTitleEdit = $("input#jobTitle-edit-"+ id) 
+        const jobTitleEdit = $("input#jobTitle-edit-" + id)
         const companyEdit = $("input#company-edit-" + id)
         const formattedLocationEdit = $("input#formattedLocation-edit-" + id)
         const snippetEdit = $("input#snippit-edit-" + id)
@@ -98,21 +101,21 @@ $(document).ready(() => {
         location.reload();
     })
 
-        
-        $('.edit-button').on("click", function (e) {
-            e.preventDefault()    
-            const id = e.target.id
-            let editfields = document.querySelectorAll("#card-" + id + " .job-card-edit-field")
-            let viewfields = document.querySelectorAll("#card-" + id + " .job-card-view-field")
-        
-            editfields.forEach(item => item.style.display = 'inline')
-            viewfields.forEach(item => item.style.display = 'none')
-    
+
+    $('.edit-button').on("click", function (e) {
+        e.preventDefault()
+        const id = e.target.id
+        let editfields = document.querySelectorAll("#card-" + id + " .job-card-edit-field")
+        let viewfields = document.querySelectorAll("#card-" + id + " .job-card-view-field")
+
+        editfields.forEach(item => item.style.display = 'inline')
+        viewfields.forEach(item => item.style.display = 'none')
+
     })
 
     $(`.delete-button`).on("click", function (e) {
         e.preventDefault();
-        
+
         const id = parseInt(this.id)
         $.ajax({
             url: `/api/home/${id}`,
