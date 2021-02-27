@@ -7,6 +7,7 @@ const exphbs = require('express-handlebars');
 const Handlebars = require('handlebars')
 const { allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
 
+
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
 const db = require("./models");

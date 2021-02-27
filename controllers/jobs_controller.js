@@ -1,4 +1,5 @@
 // const { decodeBase64 } = require('bcryptjs');
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 var express = require('express')
 var router = express.Router();
 var jobs = require('../models/jobs')
@@ -6,7 +7,7 @@ var db = require("../models")
 console.log("hello world")
 
 
-router.get("/home", function (req, res) {
+router.get("/home", isAuthenticated, function (req, res) {
 
     db.Jobs.findAll({}).then(function (dbJobs) {
         res.render('home', { Jobs: dbJobs })
