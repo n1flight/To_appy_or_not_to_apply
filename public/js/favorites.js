@@ -52,7 +52,7 @@ $(document).ready(() => {
         }
 
         $.post("/api/home", jobInput)
-        location.reload();
+        // location.reload();
 
     })
 
