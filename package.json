@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "engines": {
+    "node": "15.5.1"
+  },
   "scripts": {
     "test": "npm run lint",
     "start": "node server.js",
