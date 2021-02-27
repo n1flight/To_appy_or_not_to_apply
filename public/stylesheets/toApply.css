@@ -9,6 +9,17 @@ body{
     background-size: cover;
 }
 
+.navbar {
+	background-color: #0a7a9c;
+    color: white;
+    opacity: 90%;
+}
+
+.btn-outline-success {
+    color: white;
+    border-color: white;
+}
+
 h1 {
     text-align: center;
     margin-bottom: 30px;
@@ -56,7 +67,7 @@ background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
     background-color: #b0d2d3;
 }
 
-span{
+span.favorite{
     font-weight: bold;
     color: rgb(255, 253, 253);
 }

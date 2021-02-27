@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="/logout">logout</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -126,14 +126,14 @@
 
       <div class="row">
         <div class="col">
-          <div class="card-text" id="salary-{{id}}"><span>Salary: </span><span
+          <div class="card-text" id="salary-{{id}}"><span class="favorite">Salary: </span><span
               class="job-card-view-field">{{salary}}</span>
             <input type="number" class="job-card-edit-field form-control" id="salary-edit-{{ id }}" value="{{salary}}"
               aria-describedby="salary" style="display: none;">
           </div>
         </div>
         <div class="col">
-          <div class="card-text" id="formattedLocation-{{id}}"><span>Location: </span><span
+          <div class="card-text" id="formattedLocation-{{id}}"><span class="favorite">Location: </span><span
               class="job-card-view-field">{{formattedLocation}}</span> <input type="text"
               class="job-card-edit-field form-control" id="formattedLocation-edit-{{ id }}"
               value="{{formattedLocation}}" style="display: none;"></input></div>
@@ -142,13 +142,13 @@
 
       <div class="row">
         <div class="col">
-          <div class="card-text" id="snippet-{{id}}"><span>Description: </span><span
+          <div class="card-text" id="snippet-{{id}}"><span class="favorite">Description: </span><span
               class="job-card-view-field">{{snippit}}</span> <input type="text" class="job-card-edit-field form-control"
               id="snippit-edit-{{id}}" value="{{snippit}}" style="display: none;"></div>
         </div>
         <div class="col">
 
-          <div class="card-text" id="url-{{id}}"><span>URL: </span><span class="job-card-view-field"><a
+          <div class="card-text" id="url-{{id}}"><span class="favorite">URL: </span><span class="job-card-view-field"><a
                 href="{{url}}">{{url}}</a></span>
             <input type="text" class="job-card-edit-field form-control" id="url-edit-{{ id }}" value="{{url}}"
               style="display: none;">
@@ -158,13 +158,13 @@
 
       <div class="row">
         <div class="col">
-          <div class="card-text" id="deadline-{{id}}"><span>Deadline: </span><span
+          <div class="card-text" id="deadline-{{id}}"><span class="favorite">Deadline: </span><span
               class="job-card-view-field">{{deadline}}</span> <input type="text"
               class="job-card-edit-field form-control date-edit" id="deadline-edit-{{ id }}" value="{{deadline}}"
               style="display: none;"></div>
         </div>
         <div class="col">
-          <div class="card-text" id="notes-{{id}}"><span>Notes: </span><span
+          <div class="card-text" id="notes-{{id}}"><span class="favorite">Notes: </span><span
               class="job-card-view-field">{{notes}}</span>
             <input type="text" class="job-card-edit-field form-control" id="notes-edit-{{ id }}" value="{{notes}}"
               style="display: none;">
@@ -174,8 +174,8 @@
 
       <div class="row">
         <div class="col">
-          <div class="card-text" ><span>Interest: </span>{{interested}}
-            <span class="job-card-edit-field"  value="{{interested}}" style="display: none;">
+          <div class="card-text"><span class="favorite">Interest: </span>{{interested}}
+            <span class="job-card-edit-field" value="{{interested}}" style="display: none;">
               <select class="form-control" id="interested-edit-{{id}}">
                 <option>{{interested}}</option>
                 <option>High</option>
@@ -186,8 +186,8 @@
           </div>
         </div>
         <div class="col">
-          <div class="card-text" ><span>Status: </span>{{status}}<span class="job-card-edit-field"
-               value="{{status}}" style="display: none;">
+          <div class="card-text"><span class="favorite">Status: </span>{{status}}<span class="job-card-edit-field"
+              value="{{status}}" style="display: none;">
               <select class="form-control" id="status-edit-{{id}}">
                 <option>{{status}}</option>
                 <option>Interested</option>
@@ -203,11 +203,12 @@
           </div>
         </div>
       </div>
-  <br>
+      <br>
       <a href="#" id="{{id}}" class="edit-button btn btn-primary job-card-view-field">Edit</a>
       <a href="#" id="{{id}}" class="delete-button btn btn-primary job-card-view-field">Delete</a>
       <a href="#" id="{{id}}" style="display: none;" class="save-button btn btn-primary job-card-edit-field">Save</a>
-      <a href="#" id="{{id}}" class="cancel-button btn btn-primary job-card-edit-field" style="display: none;">Cancel</a>
+      <a href="#" id="{{id}}" class="cancel-button btn btn-primary job-card-edit-field"
+        style="display: none;">Cancel</a>
     </div>
   </div>
 
