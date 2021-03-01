@@ -37,22 +37,45 @@ $(document).ready(() => {
 
     submit.on("click", e => {
         e.preventDefault();
+        $(".error").html("")
 
-        const jobInput = {
-            jobtitle: jobTitle.val(),
-            company: company.val(),
-            formattedLocation: formattedLocation.val(),
-            snippit: snippit.val(),
-            url: url.val(),
-            salary: parseFloat(salary.val()),
-            interested: interested.val(),
-            deadline: deadline.val(),
-            notes: notes.val(),
-            status: status.val(),
+        if (jobTitle.val() == "") {
+            console.log("No title")
+            $("fieldset").append($(`<p class="error">Please add title</p>`))
+            // append "Please add title"
+        }  
+        if (company.val() == "") {
+            console.log("No company")
+            // append "Please add company"
+            $("fieldset").append($(`<p class="error">Please add company</p>`))
+
+        }
+        if (deadline.val() == "") {
+            console.log("No deadline")
+            // append "Please add deadline"
+            $("fieldset").append($(`<p class="error">Please add deadline</p>`))
+
+        } else {
+            const jobInput = {
+                jobtitle: jobTitle.val(),
+                company: company.val(),
+                formattedLocation: formattedLocation.val(),
+                snippit: snippit.val(),
+                url: url.val(),
+                salary: parseFloat(salary.val()),
+                interested: interested.val(),
+                deadline: deadline.val(),
+                notes: notes.val(),
+                status: status.val(),
+            }
+    
+            $.post("/api/home", jobInput)
+            location.reload();
+
         }
 
-        $.post("/api/home", jobInput)
-        // location.reload();
+
+ 
 
     })
 

@@ -72,6 +72,9 @@ span.favorite{
     color: rgb(255, 253, 253);
 }
 
+.error {
+    color: red;
+}
 
 
 

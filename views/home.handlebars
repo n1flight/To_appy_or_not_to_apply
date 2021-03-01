@@ -11,10 +11,10 @@
           <a class="nav-link" aria-current="page" href="/members">Members</a>
         </li>
       </ul>
-      <form class="d-flex">
+      {{!-- <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      </form> --}}
     </div>
   </div>
 </nav>
@@ -26,34 +26,34 @@
     <fieldset>
       <legend class="legend">Enter a job</legend>
       <div class="row">
-        <div class="col">
+        <div class="col">Job Title
           <input type="text" class="form-control" id="form-title" placeholder="Job Title">
         </div>
-        <div class="col">
+        <div class="col">Company
           <input type="text" class="form-control" id="form-company" placeholder="Company">
         </div>
       </div>
       <br>
       <div class="row">
-        <div class="col">
+        <div class="col">Location
           <input type="text" class="form-control" id="form-location" placeholder="Location">
         </div>
-        <div class="col">
+        <div class="col">Description
           <input type="text" class="form-control" id="form-snippit" placeholder="Description">
         </div>
       </div>
       <br>
       <div class="row">
-        <div class="col">
+        <div class="col">Link
           <input type="text" class="form-control" id="form-link" placeholder="url">
         </div>
-        <div class="col">Salary:
+        <div class="col">Salary
           <input type="number" class="form-control" id="form-salary" aria-describedby="salary" value="0" placeholder="Salary">
         </div>
       </div>
       <br>
       <div class="row">
-        <div class="col">Deadline:
+        <div class="col">Deadline
           <input type="text" class="form-control" id="form-deadline">
         </div>
 
@@ -148,8 +148,8 @@
         </div>
         <div class="col">
 
-          <div class="card-text" id="url-{{id}}"><span class="favorite">URL: </span><span class="job-card-view-field"><a
-                href="{{url}}">{{url}}</a></span>
+          <div class="card-text" id="url-{{id}}"><span class="favorite">Link: </span><span class="job-card-view-field">
+            <a href="{{url}}">{{url}}</a></span>
             <input type="text" class="job-card-edit-field form-control" id="url-edit-{{ id }}" value="{{url}}"
               style="display: none;">
           </div>
